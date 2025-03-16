@@ -31,6 +31,9 @@ int scelta2_porta;
 int scelta2_oggetto;
 int sceltaSimboli;
 
+// scelte dell'atto 2.5
+int scelta2_5_citta;
+
 void selezionepersonaggio(string protagonista) {
     cout << "Ciao " << protagonista << ", benvenuto in Stellar 832." << endl;
     cout << "In questo gioco dovrai affrontare una serie di avventure e missioni per diventare il piu' grande esploratore della galassia." << endl;
@@ -535,6 +538,88 @@ void atto2(string protagonista) {
     cout << "\nFine dell'Atto 2." << endl;
 }
 
+void atto2_5(string protagonista) {
+    cout << "\nAtto 2.5: NOMADI." << endl;
+    cout << "Dopo aver superato numerose sfide, l'equipaggio decide che è giunto il momento di spostarsi in una posizione migliore sul pianeta Xenia, "
+         << "nelle zone civilizzate e più sicure." << endl;
+    cout << "La squadra si riunisce e, dopo una lunga discussione, ti chiede di scegliere la città in cui stabilirvi. "
+         << "Questa scelta influenzerà non solo l'Atto 3, ma determinerà il destino dell'intera vostra avventura su Xenia." << endl;
+    
+    cout << "\nLe città disponibili su Xenia sono le seguenti:" << endl;
+    
+    // Presentazione dettagliata della prima città: Xenopolis
+    cout << "\n0. Xenopolis" << endl;
+    cout << "   Descrizione: Xenopolis è la metropoli ultramoderna di Xenia, famosa per le sue infrastrutture avanzate e la vivace vita culturale." << endl;
+    cout << "   Pro:" << endl;
+    cout << "        - Infrastrutture all'avanguardia: trasporti efficienti, servizi sanitari eccellenti e tecnologie innovative." << endl;
+    cout << "        - Ampia offerta culturale: musei, teatri, eventi internazionali e una scena artistica dinamica." << endl;
+    cout << "        - Numerose opportunità di lavoro e di networking, ideale per chi cerca crescita professionale." << endl;
+    cout << "   Contro:" << endl;
+    cout << "        - Elevato costo della vita: affitti e spese quotidiane molto alti." << endl;
+    cout << "        - Problemi di traffico intenso e inquinamento, tipici delle grandi metropoli." << endl;
+    
+    // Presentazione dettagliata della seconda città: Novaxenia
+    cout << "\n1. Novaxenia" << endl;
+    cout << "   Descrizione: Novaxenia è una città in rapida espansione che fonde tradizione e innovazione. Offre un ambiente equilibrato e una comunità in crescita." << endl;
+    cout << "   Pro:" << endl;
+    cout << "        - Costi della vita moderati: un'ottima soluzione per chi cerca stabilità senza spese esorbitanti." << endl;
+    cout << "        - Ambiente sicuro e ben organizzato, con infrastrutture in miglioramento e un forte senso di comunità." << endl;
+    cout << "        - Buone opportunità per investimenti personali e professionali, con un mercato in continuo sviluppo." << endl;
+    cout << "   Contro:" << endl;
+    cout << "        - Infrastrutture ancora in fase di sviluppo: alcuni servizi potrebbero non essere al livello delle metropoli maggiori." << endl;
+    cout << "        - Offerta culturale e ricreativa in evoluzione, meno ampia rispetto a Xenopolis." << endl;
+    
+    // Presentazione dettagliata della terza città: Civitas
+    cout << "\n2. Civitas" << endl;
+    cout << "   Descrizione: Civitas è una città storica, rinomata per la sua stabilità politica e il forte senso di appartenenza della comunità. Ideale per chi cerca tradizione e sicurezza." << endl;
+    cout << "   Pro:" << endl;
+    cout << "        - Stabilità politica e sociale: una città governata in maniera efficiente, con un basso tasso di criminalità." << endl;
+    cout << "        - Grande attenzione all'ambiente e alla qualità della vita, con spazi verdi e infrastrutture a misura d'uomo." << endl;
+    cout << "        - Ricca di tradizioni e cultura locale, ideale per chi ama la storia e il senso di comunità." << endl;
+    cout << "   Contro:" << endl;
+    cout << "        - Opportunità economiche e lavorative limitate rispetto alle città più grandi." << endl;
+    cout << "        - Offerta tecnologica e innovativa meno sviluppata, che potrebbe rallentare certi progressi." << endl;
+    
+    // Dialoghi dei personaggi sulle città
+    cout << "\nDopo aver ascoltato la presentazione, i membri dell'equipaggio esprimono le loro opinioni:" << endl;
+    cout << "Sora: \"Xenopolis è un sogno per chi ama la modernità, ma il costo della vita potrebbe metterci in difficoltà in fretta.\"" << endl;
+    cout << "John: \"Personalmente, Novaxenia mi sembra un compromesso ideale: non troppo costosa e in crescita, con buone opportunità per tutti.\"" << endl;
+    cout << "James: \"Civitas ha quel fascino storico e garantisce una sicurezza solida, anche se le opportunità economiche sono limitate.\"" << endl;
+    
+    cout << "\nDopo aver esaminato attentamente le opzioni, scegli in quale città desideri risiedere:" << endl;
+
+    string citta[] = {"Xenopolis", "Novaxenia", "Civitas"};
+    
+    for (int i = 0; i < 3; i++) {
+        cout << i << ". " << citta[i] << endl;
+    }
+    cout << "Inserisci il numero corrispondente alla tua scelta: ";
+    cin >> scelta2_5_citta;
+    
+    cout << "\nHai scelto: ";
+    switch (scelta2_5_citta) {
+        case 0:
+            cout << "Xenopolis" << endl;
+            break;
+        case 1:
+            cout << "Novaxenia" << endl;
+            break;
+        case 2:
+            cout << "Civitas" << endl;
+            break;
+        default:
+            cout << "Scelta non valida. Verrà impostata una città di default: Novaxenia." << endl;
+            scelta2_5_citta = 1;
+            break;
+    }
+
+    cout << "\nQuesta decisione influenzerà l'Atto 3 e determinerà il corso della tua avventura su Xenia." << endl;
+
+    cout << "\n--- La storia Finora... ---" << endl;
+    cout << "Scelta città: " << citta[scelta2_5_citta] << endl;
+    cout << "\nFine dell'Atto 2.5." << endl;
+}
+
 int main() {
     srand(time(0));
     
@@ -548,6 +633,7 @@ int main() {
     
     atto1(protagonista);
     atto2(protagonista);
+    atto2_5(protagonista);
     
     return 0;
 }
