@@ -4,6 +4,8 @@
 
 using namespace std;
 
+// todo: stagioni dimaniche , atti 3-5 e intermedi , punti onore , encounter casuali , tradimenti e relazioni amorose
+
 // per memorizzare le scelte del giocatore vengono usati codici interni. Questi codici sono definiti come segue:
 // scelta: scelta del giocatore , atto , situazione: situazione in cui si trova il giocatore
 
@@ -33,6 +35,9 @@ int sceltaSimboli;
 
 // scelte dell'atto 2.5
 int scelta2_5_citta;
+
+// scelte atto 3 (diramazione xenopolis)
+int scelta3_visitaxenopolis;
 
 void selezionepersonaggio(string protagonista) {
     cout << "Ciao " << protagonista << ", benvenuto in Stellar 832." << endl;
@@ -620,6 +625,304 @@ void atto2_5(string protagonista) {
     cout << "\nFine dell'Atto 2.5." << endl;
 }
 
+// Variabili globali per le scelte dell'Atto 3
+int scelta3_xenopolis, scelta3_xenopolis_extra;
+int scelta3_novaxenia, scelta3_novaxenia_extra;
+int scelta3_civitas, scelta3_civitas_extra;
+
+void atto3_xenopolis(string protagonista) {
+    cout << "\nAtto 3: Sightseeing di Xenopolis" << endl;
+    cout << "Dopo il trasferimento a Xenopolis, tu e il tuo equipaggio vi trovate nel cuore di una metropoli ultramoderna, dove luci al neon, grattacieli scintillanti e tecnologie all'avanguardia creano un'atmosfera quasi surreale." << endl;
+    cout << "Le strade pulsano di energia e, sotto la superficie scintillante, corporazioni dominanti e organizzazioni segrete tramano intrighi per il controllo di tecnologie rivoluzionarie." << endl;
+    cout << "\nDurante la vostra prima giornata, ricevete una proposta da un potente imprenditore:" << endl;
+    cout << "Imprenditore: \"Offro risorse e contatti preziosi, ma a caro prezzo: dovrete accettare di integrarmi nella vostra squadra.\"" << endl;
+    cout << "Questo patto potrebbe aprirvi le porte del mondo high-tech, ma rischia di compromettere la vostra autonomia." << endl;
+    cout << "\nNel frattempo, decidete di esplorare la città. Che attività scegli?" << endl;
+    
+    string listaXenopolis[3] = {"museo di storia naturale", "parco divertimenti", "centro storico"};
+    for (int i = 0; i < 3; i++) {
+        cout << i << ". " << listaXenopolis[i] << endl;
+    }
+    cout << "Inserisci il numero corrispondente alla tua scelta: ";
+    cin >> scelta3_xenopolis;
+    
+    // Diramazioni principali per Xenopolis
+    switch (scelta3_xenopolis) {
+        case 0:
+            cout << "\n" << protagonista << ": Andiamo al museo di storia naturale." << endl;
+            cout << "Sora: Ottima scelta! Scopriremo antichi reperti e curiosità scientifiche." << endl;
+            // Evento chiave: scoperta di un documento segreto
+            cout << "Durante la visita, mentre esaminate una collezione dimenticata, Andrew trova un documento segreto che potrebbe cambiare il corso della vostra missione." << endl;
+            cout << "Andrew: \"Guardate qui, questo documento parla di una tecnologia proibita!\"" << endl;
+            cout << "\nOra hai una scelta: vuoi condividere subito la scoperta con l'imprenditore o tenertela per analizzarla ulteriormente con il team?" << endl;
+            cout << "0. Condividere con l'imprenditore (potrebbe portare un'alleanza vantaggiosa)" << endl;
+            cout << "1. Tenere la scoperta per il team e studiarla in segreto" << endl;
+            cout << "Inserisci la tua scelta: ";
+            cin >> scelta3_xenopolis_extra;
+            if (scelta3_xenopolis_extra == 0)
+                cout << protagonista << ": Condividiamo il documento con l'imprenditore. Forse possiamo ottenere risorse extra!" << endl;
+            else
+                cout << protagonista << ": Meglio analizzarlo noi prima di fidarci di chiunque." << endl;
+            break;
+            
+        case 1:
+            cout << "\n" << protagonista << ": Andiamo al parco divertimenti." << endl;
+            cout << "John: Che divertimento! Preparatevi per una giornata piena di adrenalina." << endl;
+            // Evento chiave: blackout e tentativo di furto
+            cout << "Mentre vi godete le attrazioni, si verifica un improvviso blackout. Nel caos, un gruppo di individui sospetti tenta di rubare tecnologie avanzate." << endl;
+            cout << "Sora: \"Non possiamo lasciarli scappare!\"" << endl;
+            cout << "\nOra hai una scelta: intervenire personalmente o chiamare la sicurezza della città?" << endl;
+            cout << "0. Intervenire personalmente per fermare i malviventi" << endl;
+            cout << "1. Chiamare subito la sicurezza e coordinare l'intervento" << endl;
+            cout << "Inserisci la tua scelta: ";
+            cin >> scelta3_xenopolis_extra;
+            if (scelta3_xenopolis_extra == 0)
+                cout << protagonista << ": Agisco subito! Dobbiamo proteggere la tecnologia a ogni costo." << endl;
+            else
+                cout << protagonista << ": Chiamiamo la sicurezza. Meglio essere organizzati in situazioni caotiche." << endl;
+            break;
+            
+        case 2:
+            cout << "\n" << protagonista << ": Andiamo al centro storico." << endl;
+            cout << "James: Mi piace l'idea. Immergiamoci nelle radici di Xenopolis." << endl;
+            // Evento chiave: scoperta di un manifesto
+            cout << "Nel centro storico, scoprite un vecchio manifesto che accenna a una cospirazione tra corporazioni. John commenta: \"Questa pista merita di essere seguita...\"" << endl;
+            cout << "\nOra hai una scelta: indagare sul manifesto oppure ignorarlo per concentrarti sull'alleanza con l'imprenditore?" << endl;
+            cout << "0. Indagare sul manifesto e cercare di svelare la cospirazione" << endl;
+            cout << "1. Ignorare il manifesto per concentrarsi sull'offerta dell'imprenditore" << endl;
+            cout << "Inserisci la tua scelta: ";
+            cin >> scelta3_xenopolis_extra;
+            if (scelta3_xenopolis_extra == 0)
+                cout << protagonista << ": Seguiamo questa pista, potrebbe svelarci segreti fondamentali." << endl;
+            else
+                cout << protagonista << ": Meglio concentrarci sull'alleanza, potrebbe garantirci risorse importanti." << endl;
+            break;
+            
+        default:
+            cout << "Scelta non valida. Per default, andiamo al centro storico." << endl;
+            scelta3_xenopolis = 2;
+            break;
+    }
+    
+    // Schematizzazione delle scelte in Xenopolis
+    cout << "\n--- Schematizzazione delle scelte in Xenopolis ---" << endl;
+    cout << "Attività principale scelta: " << listaXenopolis[scelta3_xenopolis] << endl;
+    cout << "Scelta secondaria: ";
+    if (scelta3_xenopolis == 0) {
+        if (scelta3_xenopolis_extra == 0)
+            cout << "Condivisione del documento con l'imprenditore." << endl;
+        else
+            cout << "Analisi segreta del documento con il team." << endl;
+    }
+    else if (scelta3_xenopolis == 1) {
+        if (scelta3_xenopolis_extra == 0)
+            cout << "Intervento diretto per fermare il furto." << endl;
+        else
+            cout << "Chiamata alla sicurezza per coordinare l'intervento." << endl;
+    }
+    else if (scelta3_xenopolis == 2) {
+        if (scelta3_xenopolis_extra == 0)
+            cout << "Indagine sul manifesto cospiratorio." << endl;
+        else
+            cout << "Concentrazione sull'alleanza con l'imprenditore." << endl;
+    }
+    cout << "\nFine dell'Atto 3 a Xenopolis." << endl;
+}
+
+void atto3_novaxenia(string protagonista) {
+    cout << "\nAtto 3: Il Nuovo Inizio a Novaxenia" << endl;
+    cout << "Arrivati a Novaxenia, il gruppo scopre una città in rapida espansione, dove il vecchio convive con il nuovo in un equilibrio precario." << endl;
+    cout << "Le strade di Novaxenia sono un crocevia di quartieri storici e aree industriali moderne, e l'atmosfera è carica di ambizioni e tensioni sociali." << endl;
+    cout << "\nDurante la vostra esplorazione, un gruppo di giovani imprenditori vi propone una riforma civica radicale, mirata ad unire le fazioni in conflitto e a rivoluzionare il sistema cittadino." << endl;
+    cout << "Tuttavia, alcuni abitanti tradizionalisti sono preoccupati che questo cambiamento possa cancellare l'identità culturale della città." << endl;
+    cout << "\nPer conoscere meglio la città, decidete di scegliere una delle seguenti attività:" << endl;
+    string listaNovaxenia[3] = {"mercato locale", "centro culturale", "parco urbano"};
+    for (int i = 0; i < 3; i++) {
+        cout << i << ". " << listaNovaxenia[i] << endl;
+    }
+    cout << "Inserisci il numero corrispondente alla tua scelta: ";
+    cin >> scelta3_novaxenia;
+    
+    // Diramazioni principali per Novaxenia
+    switch (scelta3_novaxenia) {
+        case 0:
+            cout << "\n" << protagonista << ": Andiamo al mercato locale." << endl;
+            cout << "John: Perfetto, il mercato è il cuore pulsante della città!" << endl;
+            // Evento chiave: incontro con un vecchio saggio
+            cout << "Al mercato, incontrate un vecchio saggio che vi svela l'esistenza di una rivoluzione imminente, capace di trasformare l'intero sistema cittadino." << endl;
+            cout << "Sora: \"Questa informazione potrebbe essere la chiave per la nostra prossima mossa!\"" << endl;
+            cout << "\nOra scegli: vuoi informare immediatamente i leader locali per cercare di guidare la riforma oppure mantenere il segreto per usare l'informazione a vostro vantaggio?" << endl;
+            cout << "0. Informare i leader locali" << endl;
+            cout << "1. Tenere il segreto e pianificare in privato" << endl;
+            cout << "Inserisci la tua scelta: ";
+            cin >> scelta3_novaxenia_extra;
+            if (scelta3_novaxenia_extra == 0)
+                cout << protagonista << ": Informiamo subito i leader per guidare il cambiamento!" << endl;
+            else
+                cout << protagonista << ": Meglio pianificare in privato e sfruttare questa informazione strategicamente." << endl;
+            break;
+            
+        case 1:
+            cout << "\n" << protagonista << ": Andiamo al centro culturale." << endl;
+            cout << "Sora: Ottima scelta! Il centro culturale è dove arte e innovazione si fondono." << endl;
+            // Evento chiave: performance teatrale tesa
+            cout << "Durante una performance, notate una forte tensione tra artisti e autorità locali. Un artista vi lancia un messaggio criptico, suggerendo che il cambiamento potrebbe essere imminente." << endl;
+            cout << "James: \"Forse è il momento di prendere una posizione...\"" << endl;
+            cout << "\nScegli ora: vuoi unirti attivamente alla riforma culturale oppure restare neutrali per osservare gli sviluppi?" << endl;
+            cout << "0. Unirsi alla riforma culturale" << endl;
+            cout << "1. Restare neutrali" << endl;
+            cout << "Inserisci la tua scelta: ";
+            cin >> scelta3_novaxenia_extra;
+            if (scelta3_novaxenia_extra == 0)
+                cout << protagonista << ": Io scelgo di prendere parte attiva, per dare forma al futuro di Novaxenia!" << endl;
+            else
+                cout << protagonista << ": Preferisco osservare e valutare la situazione prima di schierarmi." << endl;
+            break;
+            
+        case 2:
+            cout << "\n" << protagonista << ": Andiamo al parco urbano." << endl;
+            cout << "James: Un ambiente rilassante per riflettere e ascoltare il popolo." << endl;
+            // Evento chiave: raduno spontaneo di cittadini in protesta
+            cout << "Nel parco, assistete a un raduno improvviso di cittadini che protestano contro ingiustizie locali. Andrew interviene: \"Dobbiamo capire le ragioni di questo malcontento!\"" << endl;
+            cout << "\nOra scegli: vuoi parlare direttamente con i manifestanti per raccogliere informazioni oppure contattare le autorità per mediare il conflitto?" << endl;
+            cout << "0. Parlare con i manifestanti" << endl;
+            cout << "1. Contattare le autorità" << endl;
+            cout << "Inserisci la tua scelta: ";
+            cin >> scelta3_novaxenia_extra;
+            if (scelta3_novaxenia_extra == 0)
+                cout << protagonista << ": Parliamo con i cittadini, le loro storie ci guideranno!" << endl;
+            else
+                cout << protagonista << ": Chiamiamo le autorità per cercare di mediare la situazione." << endl;
+            break;
+            
+        default:
+            cout << "Scelta non valida. Per default, andiamo al centro culturale." << endl;
+            scelta3_novaxenia = 1;
+            break;
+    }
+    
+    // Schematizzazione delle scelte in Novaxenia
+    cout << "\n--- Schematizzazione delle scelte in Novaxenia ---" << endl;
+    cout << "Attività principale scelta: " << listaNovaxenia[scelta3_novaxenia] << endl;
+    cout << "Scelta secondaria: ";
+    if (scelta3_novaxenia == 0) {
+        if (scelta3_novaxenia_extra == 0)
+            cout << "Informare i leader locali." << endl;
+        else
+            cout << "Mantenere il segreto e pianificare in privato." << endl;
+    }
+    else if (scelta3_novaxenia == 1) {
+        if (scelta3_novaxenia_extra == 0)
+            cout << "Unirsi attivamente alla riforma culturale." << endl;
+        else
+            cout << "Restare neutrali." << endl;
+    }
+    else if (scelta3_novaxenia == 2) {
+        if (scelta3_novaxenia_extra == 0)
+            cout << "Parlare con i manifestanti." << endl;
+        else
+            cout << "Contattare le autorità." << endl;
+    }
+    cout << "\nFine dell'Atto 3 a Novaxenia." << endl;
+}
+
+void atto3_civitas(string protagonista) {
+    cout << "\nAtto 3: Le Radici di Civitas" << endl;
+    cout << "In Civitas, la città ricca di storia e tradizione, ogni angolo racconta leggende secolari. Le antiche mura, le piazze acciottolate e i templi nascosti custodiscono segreti che potrebbero cambiare il destino di Xenia." << endl;
+    cout << "\nIl gruppo si immerge nell'atmosfera senza tempo di Civitas. Mentre esplorate la città, emergono documenti antichi e leggende che parlano di un potere nascosto." << endl;
+    cout << "Sora: \"Ci sono storie che dicono che una reliquia possa sbloccare un segreto millenario.\" " << endl;
+    cout << "John: \"Questa potrebbe essere la chiave per affrontare le minacce future.\" " << endl;
+    cout << "James: \"Ma attenzione, la tradizione ha anche il suo peso e la sua rigidità.\" " << endl;
+    cout << "\nPer approfondire la conoscenza della città, scegli una delle seguenti attività:" << endl;
+    string listaCivitas[3] = {"antico teatro", "museo della città", "piazze e caffè tradizionali"};
+    for (int i = 0; i < 3; i++) {
+        cout << i << ". " << listaCivitas[i] << endl;
+    }
+    cout << "Inserisci il numero corrispondente alla tua scelta: ";
+    cin >> scelta3_civitas;
+    
+    // Diramazioni principali per Civitas
+    switch (scelta3_civitas) {
+        case 0:
+            cout << "\n" << protagonista << ": Andiamo all'antico teatro." << endl;
+            cout << "Sora: Sarà affascinante rivivere le opere del passato." << endl;
+            // Evento chiave: messaggio criptico durante la rappresentazione
+            cout << "Durante uno spettacolo, un attore misterioso recita versi enigmatici che alludono a una fazione segreta e a un imminente cambiamento politico." << endl;
+            cout << "\nAdesso scegli: vuoi seguire l'attore per scoprire di più oppure tornare subito dal gruppo?" << endl;
+            cout << "0. Seguire l'attore in segreto" << endl;
+            cout << "1. Tornare dal gruppo per discutere l'accaduto" << endl;
+            cout << "Inserisci la tua scelta: ";
+            cin >> scelta3_civitas_extra;
+            if (scelta3_civitas_extra == 0)
+                cout << protagonista << ": Lo seguirò discretamente per capire il significato del messaggio." << endl;
+            else
+                cout << protagonista << ": Meglio unirci al gruppo e discutere questo mistero insieme." << endl;
+            break;
+            
+        case 1:
+            cout << "\n" << protagonista << ": Andiamo al museo della città." << endl;
+            cout << "John: Ottima idea! Le reliquie e i documenti antichi sono la chiave per svelare i misteri di Civitas." << endl;
+            // Evento chiave: scoperta di una reliquia misteriosa
+            cout << "Nel museo, trovate una reliquia che, secondo la leggenda, custodisce il segreto per il futuro di Xenia. Sora esclama: \"Questa reliquia potrebbe essere la nostra salvezza!\"" << endl;
+            cout << "\nOra decidi: vuoi portare la reliquia immediatamente al consiglio cittadino oppure conservarla per studiarla in segreto?" << endl;
+            cout << "0. Portare la reliquia al consiglio cittadino" << endl;
+            cout << "1. Conservare la reliquia per ulteriori analisi in privato" << endl;
+            cout << "Inserisci la tua scelta: ";
+            cin >> scelta3_civitas_extra;
+            if (scelta3_civitas_extra == 0)
+                cout << protagonista << ": Dobbiamo informare le autorità e usare questo potere per il bene comune." << endl;
+            else
+                cout << protagonista << ": Meglio studiarla prima di svelare il suo potere al mondo." << endl;
+            break;
+            
+        case 2:
+            cout << "\n" << protagonista << ": Andiamo a esplorare le piazze e sediamoci in un caffè tradizionale." << endl;
+            cout << "James: Adoro l'atmosfera di queste piazze; ascoltare le storie degli abitanti è impagabile." << endl;
+            // Evento chiave: racconto della vecchia signora
+            cout << "In una piazza, una vecchia signora racconta leggende di intrighi antichi e avverte di una minaccia imminente, lanciando un monito al gruppo." << endl;
+            cout << "\nOra scegli: vuoi prendere sul serio il suo avvertimento e allertare il gruppo, oppure considerarlo solo una storia antica?" << endl;
+            cout << "0. Allertare immediatamente il gruppo" << endl;
+            cout << "1. Considerarlo solo una leggenda e continuare a esplorare" << endl;
+            cout << "Inserisci la tua scelta: ";
+            cin >> scelta3_civitas_extra;
+            if (scelta3_civitas_extra == 0)
+                cout << protagonista << ": Dobbiamo prendere sul serio questo avvertimento e preparaci a ogni evenienza." << endl;
+            else
+                cout << protagonista << ": Sono solo storie... per ora, continuiamo la nostra esplorazione." << endl;
+            break;
+            
+        default:
+            cout << "Scelta non valida. Per default, andiamo al museo della città." << endl;
+            scelta3_civitas = 1;
+            break;
+    }
+    
+    // Schematizzazione delle scelte in Civitas
+    cout << "\n--- Schematizzazione delle scelte in Civitas ---" << endl;
+    cout << "Attività principale scelta: " << listaCivitas[scelta3_civitas] << endl;
+    cout << "Scelta secondaria: ";
+    if (scelta3_civitas == 0) {
+        if (scelta3_civitas_extra == 0)
+            cout << "Seguire l'attore in segreto." << endl;
+        else
+            cout << "Tornare dal gruppo per discutere l'accaduto." << endl;
+    }
+    else if (scelta3_civitas == 1) {
+        if (scelta3_civitas_extra == 0)
+            cout << "Portare la reliquia al consiglio cittadino." << endl;
+        else
+            cout << "Conservare la reliquia per ulteriori analisi." << endl;
+    }
+    else if (scelta3_civitas == 2) {
+        if (scelta3_civitas_extra == 0)
+            cout << "Allertare immediatamente il gruppo." << endl;
+        else
+            cout << "Continuare a esplorare senza dare peso all'avvertimento." << endl;
+    }
+    cout << "\nFine dell'Atto 3 a Civitas." << endl;
+}
+
+
 int main() {
     srand(time(0));
     
@@ -634,6 +937,18 @@ int main() {
     atto1(protagonista);
     atto2(protagonista);
     atto2_5(protagonista);
+
+    switch (scelta2_5_citta) {
+        case 0:
+            atto3_xenopolis(protagonista);
+            break;
+        case 1:
+            atto3_novaxenia(protagonista);
+            break;
+        case 2:
+            atto3_civitas(protagonista);
+            break;
+    }
     
     return 0;
 }
