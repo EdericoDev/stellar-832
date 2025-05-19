@@ -922,11 +922,759 @@ void atto3_civitas(string protagonista) {
     cout << "\nFine dell'Atto 3 a Civitas." << endl;
 }
 
+int scelta4_xenopolis,
+    scelta4_xenopolis_extra,
+    scelta4_xenopolis_ageggio,
+    scelta4_xenopolis_piani;
+int scelta4_novaxenia,
+    scelta4_novaxenia_extra,
+    scelta4_novaxenia_rimedio;
+int scelta4_civitas,
+    scelta4_civitas_extra,
+    scelta4_civitas_alleanza;
+
+void atto4_xenopolis(string protagonista) {
+    cout << "\nAtto 4: Minaccia a Xenopolis" << endl;
+    cout << "Dopo aver esplorato Xenopolis, il gruppo scopre che la città è minacciata da una corporazione segreta." << endl;
+    cout << "Sora: \"Dobbiamo fermarli prima che sia troppo tardi!\"" << endl;
+    cout << "John: \"Abbiamo bisogno di alleati e informazioni per affrontare questa minaccia.\"" << endl;
+    cout << "James: \"La nostra avventura non è finita, anzi, sta per diventare ancora più intensa!\"" << endl;
+    cout << "\nScegli come intervenire:" << endl;
+    string opzioni1[2] = { "Unirsi ai ribelli", "Infiltrarsi nella corporazione" };
+    for(int i=0; i<2; i++) cout << i << ". " << opzioni1[i] << endl;
+    cout << "Scelta: "; cin >> scelta4_xenopolis;
+
+    if (scelta4_xenopolis == 0) {
+        cout << "\nHai deciso di unirti ai ribelli." << endl;
+        cout << "Ti presentano la loro leader, Kaela, che ti chiede di sabotare un convoglio di armi." << endl;
+        cout << "Vuoi:" << endl;
+        string opzioni1b[2] = { "Tuffarti nell'azione subito", "Pianificare un'imboscata" };
+        for(int i=0; i<2; i++) cout << i << ". " << opzioni1b[i] << endl;
+        cout << "Scelta: "; cin >> scelta4_xenopolis_extra;
+        if (scelta4_xenopolis_extra == 0) {
+            cout << "\nAssalti il convoglio con forza bruta: ottieni rispetto ma perdi risorse." << endl;
+        }
+        else {
+            cout << "\nOrganizzi un'imboscata perfetta: risparmi risorse, guadagni nuovi alleati nel sottobosco." << endl;
+        }
+    }
+    else {
+        cout << "\nHai scelto di infiltrarti nella corporazione." << endl;
+        if (scelta2_salvajohn == 0) {
+            cout << "Grazie al tuo legame con John, hai accesso a informazioni riservate." << endl;
+            scelta4_xenopolis_ageggio = 1;
+        }
+        else {
+            cout << "Entri sotto copertura, ma parti senza supporto esterno." << endl;
+        }
+        cout << "\nOra decidi il tuo piano interno:" << endl;
+        string opzioni2[2] = { "Sabotare le operazioni", "Raccogliere informazioni" };
+        for(int i=0; i<2; i++) cout << i << ". " << opzioni2[i] << endl;
+        cout << "Scelta: "; cin >> scelta4_xenopolis_piani;
+
+        if (scelta4_xenopolis_piani == 0) {
+            cout << "\nMetti fuori uso i macchinari: rallenti la produzione ma ti espongono." << endl;
+            if (scelta4_xenopolis_ageggio == 1)
+                cout << "Il tuo vantaggio informativo riduce il sospetto su di te." << endl;
+        }
+        else {
+            cout << "\nRaccogli dossier segreti: scopri il piano di conquista completo." << endl;
+            cout << "Vuoi inviare subito le info ai ribelli o conservarle per un colpo finale?" << endl;
+            string opzioni2b[2] = { "Inviare subito", "Conservarle" };
+            for(int i=0; i<2; i++) cout << i << ". " << opzioni2b[i] << endl;
+            cout << "Scelta: "; cin >> scelta4_xenopolis_extra;
+            if (scelta4_xenopolis_extra == 0)
+                cout << "I ribelli si preparano all'assalto: hai guadagnato il loro rispetto." << endl;
+            else
+                cout << "Conservi le informazioni per usarle in un momento critico: aumenta il fattore sorpresa." << endl;
+        }
+    }
+
+    cout << "Fine dell'Atto 4 a Xenopolis." << endl;
+}
+
+void atto4_novaxenia(string protagonista) {
+    cout << "\nAtto 4: Terrore a Nova Xenia" << endl;
+    cout << "La città di Nova Xenia è avvolta da un'ombra tossica, i cittadini cadono malati." << endl;
+    cout << "Sora: \"Dobbiamo trovare la fonte di questa contaminazione!\"" << endl;
+    cout << "James: \"Ho sentito voci su un laboratorio clandestino.\"" << endl;
+    cout << "\nScegli come agire:" << endl;
+    string opzioni1[2] = { "Soccorri i malati", "Indaga sul laboratorio" };
+    for(int i=0; i<2; i++) cout << i << ". " << opzioni1[i] << endl;
+    cout << "Scelta: "; cin >> scelta4_novaxenia;
+
+    if (scelta4_novaxenia == 0) {
+        cout << "\nTi dedichi ai soccorsi: raccogli erbe curative e tassi l'inquinamento." << endl;
+        cout << "Vuoi:" << endl;
+        string opzioni1b[2] = { "Costruire un campo medico", "Distribuire cure porta a porta" };
+        for(int i=0; i<2; i++) cout << i << ". " << opzioni1b[i] << endl;
+        cout << "Scelta: "; cin >> scelta4_novaxenia_extra;
+        if (scelta4_novaxenia_extra == 0)
+            cout << "Il campo medico salva centinaia di vite, ma attira l'attenzione dei nemici." << endl;
+        else
+            cout << "Porti cura direttamente alle famiglie, guadagni fiducia ma procedi più lentamente." << endl;
+    }
+    else {
+        cout << "\nIndaghi sul laboratorio clandestino." << endl;
+        cout << "Andrew: \"I documenti parlano di un'arma biologica sperimentale.\""<< endl;
+        cout << "\nOra decidi:" << endl;
+        string opzioni2[2] = { "Distruggere il laboratorio", "Rubare il prototipo" };
+        for(int i=0; i<2; i++) cout << i << ". " << opzioni2[i] << endl;
+        cout << "Scelta: "; cin >> scelta4_novaxenia_rimedio;
+        if (scelta4_novaxenia_rimedio == 0) {
+            cout << "\nFai esplodere il complesso: impedisci la diffusione ma perdi dati preziosi." << endl;
+        }
+        else {
+            cout << "\nRubate il prototipo: potete studiarlo e creare un antidoto." << endl;
+            scelta4_novaxenia_extra = 1;
+        }
+    }
+
+    cout << "Fine dell'Atto 4 a Nova Xenia." << endl;
+}
+
+void atto4_civitas(string protagonista) {
+    cout << "\nAtto 4: Semper Civitas" << endl;
+    cout << "Nella città-stato di Civitas infuria una crisi politica tra senato e popolari." << endl;
+    cout << "John: \"Dobbiamo decidere se appoggiare il Senato o i Ribelli di Popolo.\""<< endl;
+    cout << "\nScegli da che parte stare:" << endl;
+    string opzioni1[2] = { "Supportare il Senato", "Supportare i Ribelli" };
+    for(int i=0; i<2; i++) cout << i << ". " << opzioni1[i] << endl;
+    cout << "Scelta: "; cin >> scelta4_civitas;
+
+    if (scelta4_civitas == 0) {
+        cout << "\nTi allei con il Senato: ottieni risorse ufficiali." << endl;
+        cout << "Vuoi:" << endl;
+        string opzioni1b[2] = { "Conferire con il Console", "Rafforzare le guarnigioni" };
+        for(int i=0; i<2; i++) cout << i << ". " << opzioni1b[i] << endl;
+        cout << "Scelta: "; cin >> scelta4_civitas_extra;
+        if (scelta4_civitas_extra == 0)
+            cout << "Ottieni il favore del Console, ma il popolo diffida del tuo intervento." << endl;
+        else
+            cout << "Le guarnigioni tengono la città sicura, ma i ribelli si rafforzano nell'ombra." << endl;
+    }
+    else {
+        cout << "\nAccetti di appoggiare i Ribelli di Popolo." << endl;
+        cout << "Sora: \"Dobbiamo guadagnare il cuore dei cittadini.\""<< endl;
+        cout << "\nOra scegli:" << endl;
+        string opzioni2[2] = { "Organizzare un comizio pubblico", "Sabotare le scorte del Senato" };
+        for(int i=0; i<2; i++) cout << i << ". " << opzioni2[i] << endl;
+        cout << "Scelta: "; cin >> scelta4_civitas_alleanza;
+        if (scelta4_civitas_alleanza == 0)
+            cout << "\nIl comizio infiamma le folle: ottieni un esercito di cittadini." << endl;
+        else
+            cout << "\nAffondi le scorte: il Senato vacilla, ma attiri troppa attenzione militare." << endl;
+    }
+
+    cout << "Fine dell'Atto 4 a Civitas." << endl;
+}
+
+// variabili di stato atto 5
+int scelta5_xenopolis_primo;
+int scelta5_xenopolis_secondo;
+int scelta5_xenopolis_terzo;
+int scelta5_xenopolis_finale;
+
+int scelta5_novaxenia_primo;
+int scelta5_novaxenia_secondo;
+int scelta5_novaxenia_terzo;
+int scelta5_novaxenia_finale;
+
+int scelta5_civitas_primo;
+int scelta5_civitas_secondo;
+int scelta5_civitas_terzo;
+int scelta5_civitas_finale;
+
+void atto5_xenopolis(string protagonista) {
+    cout << "\nAtto 5: L'Assedio di Xenopolis" << endl;
+    cout << "Le macchine della corporazione avanzano sui bastioni. Il tuo gruppo è pronto." << endl;
+
+    // fase 1: formazione della difesa
+    cout << "\n1) Come organizzi la difesa delle mura?" << endl;
+    string op1[3] = {
+        "Rafforzare i baluardi con cariche EMP",
+        "Schierare truppe di ribelli alle torri",
+        "Infiltrare droni di sorveglianza nei droni di supporto nemici"
+    };
+    for (int i = 0; i < 3; i++) cout << i << ". " << op1[i] << endl;
+    cout << "Scelta: "; cin >> scelta5_xenopolis_primo;
+
+    if (scelta5_xenopolis_primo == 0) {
+        cout << "\nLe cariche EMP disabilitano mezza guarnigione nemica." << endl;
+        if (scelta4_xenopolis_piani == 0)
+            cout << "Il sabotaggio interno amplifica l'effetto: caos totale." << endl;
+    }
+    else if (scelta5_xenopolis_primo == 1) {
+        cout << "\nI ribelli salgono in massa sulle torri, ma subiscono perdite." << endl;
+        if (scelta4_xenopolis_extra == 1)
+            cout << "Grazie all'imboscata, i rinforzi ribelli arrivano in tempo." << endl;
+    }
+    else {
+        cout << "\nI droni confondono il nemico, guadagni preziosi secondi." << endl;
+    }
+
+    // fase 2: controffensiva
+    cout << "\n2) Vuoi pilotare personalmente un veicolo d'assalto?" << endl;
+    string op2[2] = { "Sì, guida il carro EMP", "No, resta a coordinare" };
+    for (int i = 0; i < 2; i++) cout << i << ". " << op2[i] << endl;
+    cout << "Scelta: "; cin >> scelta5_xenopolis_secondo;
+
+    if (scelta5_xenopolis_secondo == 0) {
+        cout << "\nSalti sul carro: la tua manovra frontale demoralizza il nemico." << endl;
+    } else {
+        cout << "\nDa lontano dai ordini: la difesa è più compatta, ma perdi visione diretta." << endl;
+    }
+
+    // fase 3: gesto finale
+    cout << "\n3) I leader corporativi ti sfidano a un duello: accetti?" << endl;
+    string op3[2] = { "Accetto", "Rifiuto e attacco in gruppo" };
+    for (int i = 0; i < 2; i++) cout << i << ". " << op3[i] << endl;
+    cout << "Scelta: "; cin >> scelta5_xenopolis_terzo;
+
+    if (scelta5_xenopolis_terzo == 0) {
+        cout << "\nDuelli uno a uno: dimostri la tua forza, instauri rispetto." << endl;
+        if (scelta4_xenopolis_ageggio == 1)
+            cout << "John ti copre le spalle consentendoti di vincere." << endl;
+    }
+    else {
+        cout << "\nAttacco concentrato: travolgete i nemici, ma rischiate ingenti perdite." << endl;
+    }
+
+    // fase finale: scelta del destino della corporazione
+    cout << "\n4) Cosa fai una volta caduto il comando avversario?" << endl;
+    string op4[2] = { "Distruggere le strutture rimaste", "Riadattarle al servizio dei ribelli" };
+    for (int i = 0; i < 2; i++) cout << i << ". " << op4[i] << endl;
+    cout << "Scelta: "; cin >> scelta5_xenopolis_finale;
+
+    if (scelta5_xenopolis_finale == 0) {
+        cout << "\nRase al suolo le officine: la minaccia è estinta ma perdi tecnologie." << endl;
+    }
+    else {
+        cout << "\nConverti le officine: i ribelli ottengono nuove armi e supporto tecnico." << endl;
+    }
+
+    cout << "\nFine Atto 5 a Xenopolis." << endl;
+}
+
+void atto5_novaxenia(string protagonista) {
+    cout << "\nAtto 5: La Cura di Nova Xenia" << endl;
+    cout << "L'arma biologica è pronta a scatenarsi. È l'ultima occasione per fermarla." << endl;
+
+    // fase 1: recupero del campione
+    cout << "\n1) Come entri nel cuore del laboratorio?" << endl;
+    string op1[3] = {
+        "Travestimento da scienziato",
+        "Appostamento notturno",
+        "Forzatura dei sistemi di sicurezza"
+    };
+    for (int i = 0; i < 3; i++) cout << i << ". " << op1[i] << endl;
+    cout << "Scelta: "; cin >> scelta5_novaxenia_primo;
+
+    if (scelta5_novaxenia_primo == 0) {
+        cout << "\nAccesso con false credenziali, eviti controlli ma perdi tempo prezioso." << endl;
+    }
+    else if (scelta5_novaxenia_primo == 1) {
+        cout << "\nSorpresi i guardiani dormienti, ma un allarme silenzioso si attiva." << endl;
+    }
+    else {
+        cout << "\nDisabiliti gran parte dei laser di sicurezza: avanzata rapida." << endl;
+        if (scelta4_novaxenia_rimedio == 1)
+            cout << "Con il prototipo già in mano, recuperi i dati senza intoppi." << endl;
+    }
+
+    // fase 2: sviluppo dell'antidoto
+    cout << "\n2) Dove concentri le risorse per l'antidoto?" << endl;
+    string op2[2] = { "Laboratorio mobile in città", "Installazione fissa nei sotterranei" };
+    for (int i = 0; i < 2; i++) cout << i << ". " << op2[i] << endl;
+    cout << "Scelta: "; cin >> scelta5_novaxenia_secondo;
+
+    if (scelta5_novaxenia_secondo == 0) {
+        cout << "\nIl laboratorio mobile segue i malati, ma è vulnerabile agli attacchi." << endl;
+    } else {
+        cout << "\nLa base fissa è sicura, ma richiede tempo per installarsi." << endl;
+    }
+
+    // fase 3: somministrazione
+    cout << "\n3) Chi dovresti curare per primo?" << endl;
+    string op3[3] = { "I leader della città", "I più giovani", "Gli anziani" };
+    for (int i = 0; i < 3; i++) cout << i << ". " << op3[i] << endl;
+    cout << "Scelta: "; cin >> scelta5_novaxenia_terzo;
+
+    if (scelta5_novaxenia_terzo == 0) {
+        cout << "\nSalvi i governanti, ottieni aiuti politici ma desti invidia." << endl;
+    }
+    else if (scelta5_novaxenia_terzo == 1) {
+        cout << "\nI giovani si riprendono in fretta: aumenta la speranza nella popolazione." << endl;
+    }
+    else {
+        cout << "\nGli anziani riconoscenti tramandano il tuo nome alle nuove generazioni." << endl;
+        if (scelta4_novaxenia_extra == 1)
+            cout << "Il prototipo rubato accelera la cura: tempi record." << endl;
+    }
+
+    // fase finale: il sacrificio
+    cout << "\n4) Sei disposto a usare te stesso come cavie?" << endl;
+    string op4[2] = { "Sì, somministrami il vaccino", "No, trova una squadra volontaria" };
+    for (int i = 0; i < 2; i++) cout << i << ". " << op4[i] << endl;
+    cout << "Scelta: "; cin >> scelta5_novaxenia_finale;
+
+    if (scelta5_novaxenia_finale == 0) {
+        cout << "\nTi inietti il vaccino: rischi la vita ma dimostri coraggio supremo." << endl;
+    }
+    else {
+        cout << "\nFormi una squadra: qualcuno perderà la vita al tuo posto." << endl;
+    }
+
+    cout << "\nFine Atto 5 a Nova Xenia." << endl;
+}
+
+void atto5_civitas(string protagonista) {
+    cout << "\nAtto 5: Il Concilio di Civitas" << endl;
+    cout << "Il Senato convoca un'assemblea straordinaria per decidere il destino della città." << endl;
+
+    // fase 1: discorso pubblico
+    cout << "\n1) Il tuo discorso si concentra su:" << endl;
+    string op1[3] = {
+        "Ordine e stabilità",
+        "Libertà e diritti",
+        "Unione di tutte le fazioni"
+    };
+    for (int i = 0; i < 3; i++) cout << i << ". " << op1[i] << endl;
+    cout << "Scelta: "; cin >> scelta5_civitas_primo;
+
+    if (scelta5_civitas_primo == 0) {
+        cout << "\nOttieni il favore del Senato, ma i cittadini gridano tradimento." << endl;
+        if (scelta4_civitas == 0 && scelta4_civitas_extra == 1)
+            cout << "Le guarnigioni rafforzate mantengono l'ordine." << endl;
+    }
+    else if (scelta5_civitas_primo == 1) {
+        cout << "\nIl popolo acclama la tua causa, ma il Console ti considera una minaccia." << endl;
+    }
+    else {
+        cout << "\nRiesci a ottenere silenzio e speranza: Senato e Ribelli ascoltano." << endl;
+    }
+
+    // fase 2: trattativa segreta
+    cout << "\n2) Incontri il Console in privato: come lo convinci?" << endl;
+    string op2[2] = { "Minacciare con prove scottanti", "Promettere una spartizione del potere" };
+    for (int i = 0; i < 2; i++) cout << i << ". " << op2[i] << endl;
+    cout << "Scelta: "; cin >> scelta5_civitas_secondo;
+
+    if (scelta5_civitas_secondo == 0) {
+        cout << "\nIl Console cede per paura, ma giura vendetta." << endl;
+    } else {
+        cout << "\nIl Console accetta, ma i Ribelli si sentono traditi." << endl;
+    }
+
+    // fase 3: decisione sul futuro
+    cout << "\n3) Voti per:" << endl;
+    string op3[2] = { "Monarchia riformata", "Repubblica parlamentare" };
+    for (int i = 0; i < 2; i++) cout << i << ". " << op3[i] << endl;
+    cout << "Scelta: "; cin >> scelta5_civitas_terzo;
+
+    if (scelta5_civitas_terzo == 0) {
+        cout << "\nLa monarchia riformata promette stabilità, ma limita le libertà." << endl;
+    }
+    else {
+        cout << "\nLa repubblica parlamentare esalta il voto popolare, ma rischia l'instabilità." << endl;
+        if (scelta4_civitas_alleanza == 0)
+            cout << "I cittadini che hai convinto al comizio formano il primo parlamento." << endl;
+    }
+
+    // fase finale: il Giuramento
+    cout << "\n4) Giuri fedeltà al nuovo ordine?" << endl;
+    string op4[2] = { "Sì, davanti al Concilio", "No, ti ritiri nelle brughiere" };
+    for (int i = 0; i < 2; i++) cout << i << ". " << op4[i] << endl;
+    cout << "Scelta: "; cin >> scelta5_civitas_finale;
+
+    if (scelta5_civitas_finale == 0) {
+        cout << "\nPronunci il giuramento: diventi simbolo di rinascita per Civitas." << endl;
+    }
+    else {
+        cout << "\nTi allontani dalla politica: lasci il potere ma mantieni la tua coscienza pura." << endl;
+    }
+
+    cout << "\nFine Atto 5 a Civitas." << endl;
+}
+
+// variabili di stato atto6
+int scelta6_xenopolis_fase1;
+int scelta6_xenopolis_fase2;
+int scelta6_xenopolis_fase3;
+int scelta6_xenopolis_epilogo;
+
+int scelta6_novaxenia_fase1;
+int scelta6_novaxenia_fase2;
+int scelta6_novaxenia_fase3;
+int scelta6_novaxenia_epilogo;
+
+int scelta6_civitas_fase1;
+int scelta6_civitas_fase2;
+int scelta6_civitas_fase3;
+int scelta6_civitas_epilogo;
+
+void atto6_xenopolis(string protagonista) {
+    cout << "\nAtto6: Rinascita di Xenopolis" << endl;
+    cout << "La città in rovina cerca di rialzarsi. Tu e il tuo gruppo avete la possibilità di guidare il futuro." << endl;
+
+    // fase1: rifondazione politica
+    cout << "\n1) Quale forma di governo proporrai?" << endl;
+    string op1[3] = {
+        "Consiglio misto ribelli cittadini",
+        "Dominio magistrale degli ingegneri",
+        "Democrazia diretta tramite votazioni pubbliche"
+    };
+    for (int i = 0; i < 3; i++) cout << i << ". " << op1[i] << endl;
+    cout << "Scelta: "; cin >> scelta6_xenopolis_fase1;
+
+    if (scelta6_xenopolis_fase1 == 0) {
+        cout << "\nI ribelli siedono insieme ai cittadini nell'Assemblea. Xenopolis ritrova coesione." << endl;
+        if (scelta4_xenopolis == 0)
+            cout << "La tua alleanza con i ribelli (Atto 4) rafforza il Consiglio." << endl;
+    }
+    else if (scelta6_xenopolis_fase1 == 1) {
+        cout << "\nGli ingegneri ottengono plenario potere tecnico. Efficienza ma freddezza politica." << endl;
+        if (scelta5_xenopolis_primo == 0)
+            cout << "Le cariche EMP (Atto 5) convincono gli ingegneri dell'importanza della sicurezza." << endl;
+    }
+    else {
+        cout << "\nLa democrazia diretta entusiasma la popolazione, ma rallenta le decisioni." << endl;
+    }
+
+    // fase2: ricostruzione delle infrastrutture
+    cout << "\n2) Dove concentri le risorse per ricostruire?" << endl;
+    string op2[2] = {
+        "Rimettere in funzione le officine convertite",
+        "Costruire un nuovo quartiere high tech"
+    };
+    for (int i = 0; i < 2; i++) cout << i << ". " << op2[i] << endl;
+    cout << "Scelta: "; cin >> scelta6_xenopolis_fase2;
+
+    if (scelta6_xenopolis_fase2 == 0) {
+        cout << "\nLe officine ereditate dai ribelli producono strumenti utili." << endl;
+        if (scelta6_xenopolis_finale == 1)
+            cout << "Grazie alla conversione organizzata in Atto 5, la produzione è rapida." << endl;
+    } else {
+        cout << "\nIl quartiere high tech attira talenti ma costa risorse preziose." << endl;
+    }
+
+    // fase3: sicurezza interna
+    cout << "\n3) Come garantisci la pace dentro le mura?" << endl;
+    string op3[3] = {
+        "Guardie civiche addestrate dai ribelli",
+        "Rete di sorveglianza droni-city",
+        "Milizia volontaria dei cittadini"
+    };
+    for (int i = 0; i < 3; i++) cout << i << ". " << op3[i] << endl;
+    cout << "Scelta: "; cin >> scelta6_xenopolis_fase3;
+
+    if (scelta6_xenopolis_fase3 == 0) {
+        cout << "\nLe guardie civiche pattugliano con disciplina." << endl;
+        if (scelta4_xenopolis_extra == 1)
+            cout << "L'imboscata pianificata in Atto 4 insegna tecniche di guerriglia urbana." << endl;
+    }
+    else if (scelta6_xenopolis_fase3 == 1) {
+        cout << "\nI droni monitorano ogni angolo: privacy ridotta, ma ordine stabile." << endl;
+    }
+    else {
+        cout << "\nLa milizia volontaria rende la popolazione protagonista della difesa." << endl;
+    }
+
+    // epilogo: il simbolo di rinascita
+    cout << "\n4) Quale monumento innalzerai a ricordo della lotta?" << endl;
+    string op4[2] = {
+        "Statua dell'eroe che ha guidato i ribelli",
+        "Fontana delle tecnologie riconvertite"
+    };
+    for (int i = 0; i < 2; i++) cout << i << ". " << op4[i] << endl;
+    cout << "Scelta: "; cin >> scelta6_xenopolis_epilogo;
+
+    if (scelta6_xenopolis_epilogo == 0) {
+        cout << "\nLa statua rafforza l'orgoglio popolare e ricorda il coraggio." << endl;
+    }
+    else {
+        cout << "\nLa fontana unisce arte e scienza, simbolo di rinascita tecnologica." << endl;
+    }
+
+    cout << "\nFine Atto6 a Xenopolis." << endl;
+}
+
+void atto6_novaxenia(string protagonista) {
+    cout << "\nAtto 6: Rinnovamento di Nova Xenia" << endl;
+    cout << "La cura ha funzionato, ma il pianeta rimane ferito. Ora tocca a te ricostruirlo." << endl;
+
+    // fase1: gestione delle risorse ambientali
+    cout << "\n1) Come ripristini l'ecosistema?" << endl;
+    string op1[3] = {
+        "Pianta di nuovo le foreste aliene",
+        "Riprogramma l'atmosfera con generatori bio",
+        "Crea riserve protette per le specie sopravvissute"
+    };
+    for (int i = 0; i < 3; i++) cout << i << ". " << op1[i] << endl;
+    cout << "Scelta: "; cin >> scelta6_novaxenia_fase1;
+
+    if (scelta6_novaxenia_fase1 == 0) {
+        cout << "\nI germogli crescono in fretta grazie al prototipo sottratto." << endl;
+        if (scelta4_novaxenia_rimedio == 1)
+            cout << "Il prototipo rubato in Atto 4 accelera la fotosintesi aliena." << endl;
+    }
+    else if (scelta6_novaxenia_fase1 == 1) {
+        cout << "\nL'atmosfera torna respirabile, ma i macchinari richiedono manutenzione." << endl;
+    }
+    else {
+        cout << "\nLe riserve diventano rifugi sicuri per le nuove generazioni." << endl;
+    }
+
+    // fase2: ricostruzione sociale
+    cout << "\n2) Quale sistema sanitario istituisci?" << endl;
+    string op2[2] = {
+        "Cliniche mobili in ogni insediamento",
+        "Ospedale centrale con reparti di ricerca"
+    };
+    for (int i = 0; i < 2; i++) cout << i << ". " << op2[i] << endl;
+    cout << "Scelta: "; cin >> scelta6_novaxenia_fase2;
+
+    if (scelta6_novaxenia_fase2 == 0) {
+        cout << "\nLe cliniche mobili raggiungono tutti, ma con risorse limitate." << endl;
+    } else {
+        cout << "\nL'ospedale diventa faro di speranza, ma il costo è elevato." << endl;
+        if (scelta5_novaxenia_secondo == 1)
+            cout << "La base fissa di Atto 5 ha gettato le fondamenta per questo ospedale." << endl;
+    }
+
+    // fase3: leadership culturale
+    cout << "\n3) Quale valore esalti nel discorso inaugurale?" << endl;
+    string op3[3] = {
+        "Solidarietà tra sopravvissuti",
+        "Scienza e innovazione",
+        "Rispetto per il pianeta"
+    };
+    for (int i = 0; i < 3; i++) cout << i << ". " << op3[i] << endl;
+    cout << "Scelta: "; cin >> scelta6_novaxenia_fase3;
+
+    if (scelta6_novaxenia_fase3 == 0) {
+        cout << "\nLa comunità si stringe insieme, il senso di appartenenza cresce." << endl;
+    }
+    else if (scelta6_novaxenia_fase3 == 1) {
+        cout << "\nI giovani scienziati si ispirano al tuo discorso." << endl;
+        if (scelta5_novaxenia_primo == 2)
+            cout << "Il colpo di sicurezza di Atto 5 garantisce protezione ai laboratori." << endl;
+    }
+    else {
+        cout << "\nLa protezione ambientale diventa legge fondamentale." << endl;
+    }
+
+    // epilogo: il patto con il futuro
+    cout << "\n4) Quale promessa fai al pianeta?" << endl;
+    string op4[2] = {
+        "Mai più armi biologiche",
+        "Condivisione aperta della cura con le altre colonie"
+    };
+    for (int i = 0; i < 2; i++) cout << i << ". " << op4[i] << endl;
+    cout << "Scelta: "; cin >> scelta6_novaxenia_epilogo;
+
+    if (scelta6_novaxenia_epilogo == 0) {
+        cout << "\nIl patto antibio diventa trattato interplanetario." << endl;
+    }
+    else {
+        cout << "\nLe conoscenze mediche di Nova Xenia salvano altre civiltà." << endl;
+    }
+
+    cout << "\nFine Atto 6 a Nova Xenia." << endl;
+}
+
+void atto6_civitas(string protagonista) {
+    cout << "\nAtto 6: La Legge di Civitas" << endl;
+    cout << "Il nuovo ordine politico deve ora tradursi in norme e istituzioni durevoli." << endl;
+
+    // fase1: codifica delle leggi
+    cout << "\n1) Qual è il primo articolo della Costituzione?" << endl;
+    string op1[3] = {
+        "Diritti di tutti i cittadini",
+        "Potere temperato tra fazioni",
+        "Obbligo di servizio pubblico"
+    };
+    for (int i = 0; i < 3; i++) cout << i << ". " << op1[i] << endl;
+    cout << "Scelta: "; cin >> scelta6_civitas_fase1;
+
+    if (scelta6_civitas_fase1 == 0) {
+        cout << "\nLa popolazione festeggia l'articolo egalitario." << endl;
+        if (scelta4_civitas_alleanza == 0)
+            cout << "Il comizio di Atto 4 aveva già instillato fiducia nel popolo." << endl;
+    }
+    else if (scelta6_civitas_fase1 == 1) {
+        cout << "\nIl bilanciamento di poteri evita derive autoritarie." << endl;
+    }
+    else {
+        cout << "\nIl servizio pubblico unisce cittadini e governi." << endl;
+    }
+
+    // fase2: implementazione giudiziaria
+    cout << "\n2) Come crei il sistema giudiziario?" << endl;
+    string op2[2] = {
+        "Tribunali popolari itineranti",
+        "Corte suprema stabile in Senato"
+    };
+    for (int i = 0; i < 2; i++) cout << i << ". " << op2[i] << endl;
+    cout << "Scelta: "; cin >> scelta6_civitas_fase2;
+
+    if (scelta6_civitas_fase2 == 0) {
+        cout << "\nLa giustizia arriva ovunque, ma con ritardi organizzativi." << endl;
+    } else {
+        cout << "\nLa Corte suprema assicura uniformità, ma sembra distante al popolo." << endl;
+        if (scelta5_civitas_secondo == 1)
+            cout << "Il patto segreto con il Console di Atto 5 influisce sui giudici." << endl;
+    }
+
+    // fase3: difesa della legge
+    cout << "\n3) Chi sorveglia il rispetto delle norme?" << endl;
+    string op3[3] = {
+        "Guardia cittadina eletta",
+        "Forze armate di Civitas",
+        "Magistrati itineranti"
+    };
+    for (int i = 0; i < 3; i++) cout << i << ". " << op3[i] << endl;
+    cout << "Scelta: "; cin >> scelta6_civitas_fase3;
+
+    if (scelta6_civitas_fase3 == 0) {
+        cout << "\nLa guardia elegge rappresentanti locali responsabili." << endl;
+    }
+    else if (scelta6_civitas_fase3 == 1) {
+        cout << "\nLe forze armate impongono l'ordine, ma temute dal popolo." << endl;
+    }
+    else {
+        cout << "\nI magistrati viaggiano per assicurare applicazione uniforme." << endl;
+    }
+
+    // epilogo: la firma del protagonista
+    cout << "\n4) Firma il testo finale della Costituzione?" << endl;
+    string op4[2] = { "Sì, come garante della legge", "No, come custode esterno" };
+    for (int i = 0; i < 2; i++) cout << i << ". " << op4[i] << endl;
+    cout << "Scelta: "; cin >> scelta6_civitas_epilogo;
+
+    if (scelta6_civitas_epilogo == 0) {
+        cout << "\nLa tua firma sancisce il nuovo patto sociale." << endl;
+    }
+    else {
+        cout << "\nRimani al di fuori: vegli sul rispetto in futuro." << endl;
+    }
+
+    cout << "\nFine Atto 6 a Civitas." << endl;
+}
+
+int soluzioneEnigma;
+int sceltaEnigma;
+int scelta7;
+
+void enigmaFinale() {
+    cout << "\n--- Enigma Finale: Il Cuore del Cosmo ---" << endl;
+    cout << "Davanti a te, un altare di luce pulsante: tre runici cerchi concentrici,\n";
+    cout << "ognuno segnato da simboli di scienza, arte e fede. Un iscrizione recita:\n\n";
+    cout << "«Solo chi coniuga calcolo, melodia e speranza potrà varcare la soglia eterna.»\n\n";
+    cout << "1) 5-Do-Re-Mi-13: EQUILIBRIO UNIVERSALE\n";
+    cout << "2) 7-Mi-Fa-Sol-17: ARMONIA CELESTE\n";
+    cout << "3) 11-La-Si-23: FIDUCIA SENZA TEMPO\n";
+    cout << "Risposta: "; cin >> sceltaEnigma;
+
+    // definizione della risposta corretta e suggerimenti in base alla difficoltà
+    soluzioneEnigma = 2;  // Armonia Celeste
+    if (difficolta == 0) {
+        cout << "\nSuggerimento (facile): un numero primo doppio e una scala portante di melodia ascendente.\n";
+    }
+    else if (difficolta == 1) {
+        cout << "\nSuggerimento (normale): considera i numeri primi e la nota mediana della scala.\n";
+    }
+    else {
+        // nessun suggerimento
+        cout << "\nModalità Sopravvivenza: nessun aiuto, nessuna pietà.\n";
+    }
+
+    if (sceltaEnigma == soluzioneEnigma) {
+        cout << "\nCon un rintocco di luce pura, i cerchi si spengono uno a uno.\nIl Sigillo del Cosmo è spezzato." << endl;
+    } else {
+        cout << "\nUn boato echeggia: i cerchi rimangono intatti." << endl;
+        if (difficolta == 2) {
+            cout << "Hai fallito l'enigma supremo: la tua leggenda finisce qui.\nGAME OVER.\n";
+            exit(0);
+        } else {
+            cout << "Prova ancora: il tempo scorre ma il tuo spirito non vacilla.\n";
+            enigmaFinale();
+        }
+    }
+}
+
+void atto7(string protagonista) {
+    cout << "\nAtto 7: L'Alba delle Infinite Scelte" << endl;
+    cout << "Le stelle di Xenia, Novaxenia e Civitas convergono nel tuo destino, " << protagonista << ".\n";
+    cout << "Ogni tua scelta — dalla città in cui hai posato i piedi (Atto 2.5) ai tuoi atti di ribellione,\n";
+    cout << "cura e legislazione (Atti 4 - 6) — ha forgiato un sentiero unico.\n\n";
+
+    // Ricordo delle azioni passate
+    if (scelta2_5_citta == 0) {
+        cout << "Xenopolis, la metropoli di luci e acciaio, ha respirato grazie al tuo sabotaggio\n";
+        if (scelta4_xenopolis == 0)
+            cout << "- hai stretto patto coi ribelli, instillando nelle vie un nuovo coraggio.\n";
+        else
+            cout << "- hai intrufolato segreti nella corporazione e riacceso la fiamma della rivolta.\n";
+        if (scelta5_xenopolis_secondo == 0)
+            cout << "- a bordo del carro EMP hai sfidato il fulmine, infondendo speranza al popolo.\n";
+        if (scelta6_xenopolis_fase1 == 2)
+            cout << "- inaugurata la democrazia diretta, hai consegnato il potere nelle mani di tutti.\n";
+    }
+    else if (scelta2_5_citta == 1) {
+        cout << "Novaxenia, oasi di rinascita, ha respirato grazie ai tuoi veleni e rimedi:\n";
+        if (scelta4_novaxenia == 1)
+            cout << "- hai sottratto il prototipo dal laboratorio, aprendo la via alla cura.\n";
+        if (scelta5_novaxenia_terzo == 2)
+            cout << "- curando gli anziani, hai seminato saggezza nelle nuove generazioni.\n";
+        if (scelta6_novaxenia_fase1 == 0)
+            cout << "- hai piantato le foreste aliene, radicando vita dove c'era morte.\n";
+    }
+    else {
+        cout << "Civitas, antica roccaforte di legge e consuetudine, si è trasformata per la tua voce:\n";
+        if (scelta4_civitas == 1)
+            cout << "- affiancando i ribelli, hai risvegliato il cuore popolare.\n";
+        else
+            cout << "- schierando le guarnigioni, hai preservato l'ordine fino all ultimo istante.\n";
+        if (scelta5_civitas_primo == 2)
+            cout << "- il tuo discorso d unità ha fatto tacere spade e risvegliato speranza.\n";
+        if (scelta6_civitas_fase1 == 0)
+            cout << "- con l'articolo dei diritti hai inciso il futuro nella pietra.\n";
+    }
+
+    cout << "\nOra, ai confini dell Archivio Interplanetario, ti attende il Sigillo del Cosmo.\n";
+    cout << "Con cuore colmo di ricordi e speranze, preparati a distruggerlo o plasmarlo.\n";
+
+    // Enigma finale
+    enigmaFinale();
+
+    // Scelta epilogo
+    cout << "\nMentre la polvere di stelle si posa, tre vie si spalancano davanti a te:\n";
+    cout << "1) Diffondere la Conoscenza a tutte le colonie: un alba di progresso condiviso.\n";
+    cout << "2) Custodire il sapere come Guardiano: un faro invisibile nell ombra.\n";
+    cout << "3) Sigillare e distruggere tutto: un sacrificio per evitare abusi futuri.\n";
+    cout << "Scelta definitiva: "; cin >> scelta7;
+
+    cout << "\n--- Epilogo ---\n";
+    if (scelta7 == 1) {
+        cout << "Al canto degli astri, versi di rinascita si diffondono in ogni angolo del cosmo.\n";
+        cout << "Le tue gesta diventano leggenda, un ponte di luce tra mondi in cerca di speranza.\n";
+    }
+    else if (scelta7 == 2) {
+        cout << "Silenzioso custode, vegli sulle memorie di chi verrà.\n";
+        cout << "Il tuo nome rimarrà scolpito in cuori e codici, guida eterna per i viandanti stellari.\n";
+    }
+    else {
+        cout << "Con mano ferma, annulli il potere stesso che ti ha plasmato.\n";
+        cout << "Una scelta di pietas supera ogni ambizione: anche nel vuoto, la vita trova un senso.\n";
+    }
+
+    cout << "\n--- FINE DELL'EPICA SAGA DEL COSMO ---" << endl;
+}
+
 
 int main() {
     srand(time(0));
-    
-    cout << "SOLO L'ATTO 1 E L'ATTO 2 SONO GIOCABILI IN QUESTO STATO. GLI ALTRI SONO IN WORK IN PROGRESS. NON SONO STATI NEANCHE PROGRAMMATI TUTTI I PERCORSI. IL GIOCO FUNZIONA IN MODALITA INVINCIBILE PER ORA." << endl;
     
     string protagonista;
     cout << "Come ti chiami? ";
@@ -949,6 +1697,26 @@ int main() {
             atto3_civitas(protagonista);
             break;
     }
+
+    switch (scelta2_5_citta) {
+        case 0: atto4_xenopolis(protagonista); break;
+        case 1: atto4_novaxenia(protagonista);  break;
+        case 2: atto4_civitas(protagonista);    break;
+    }
+
+    switch (scelta2_5_citta) {
+        case 0: atto5_xenopolis(protagonista); break;
+        case 1: atto5_novaxenia(protagonista);  break;
+        case 2: atto5_civitas(protagonista);    break;
+    }
+
+    switch (scelta2_5_citta) {
+        case 0: atto6_xenopolis(protagonista); break;
+        case 1: atto6_novaxenia(protagonista);  break;
+        case 2: atto6_civitas(protagonista);    break;
+    }
+
+    atto7(protagonista);
     
     return 0;
 }
